@@ -1,4 +1,7 @@
 //Database Connection for setup
+const PORT = process.env.PORT || 8080;
+const ENV = process.env.ENV || "development";
+const express = require("express");
 const { Pool } = require("pg");
 let dbParams = {};
 
@@ -180,6 +183,7 @@ const getAllUserOpportunites = (type, email) => {
 
 module.exports = {
   dbParams,
+  express,
   createRequest,
   showRequests,
   createPost,

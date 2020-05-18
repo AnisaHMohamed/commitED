@@ -27,6 +27,7 @@ export default function LoginPage(props) {
   // }, 700);
   const classes = useStyles();
   const { ...rest } = props;
+  const [message, setMessage] = useState('')
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -41,6 +42,7 @@ export default function LoginPage(props) {
       )
       .then(response => {
         // todo: remove once you're all set up *** add in if you want to render serviceUSER
+        console.log(response)
         localStorage.setItem('user', JSON.stringify(response.data.user));
         props.setUser(response.data.user);
         window.location = "/index";
