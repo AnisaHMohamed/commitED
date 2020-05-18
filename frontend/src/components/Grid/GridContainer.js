@@ -10,13 +10,13 @@ const styles = {
   grid: {
     marginRight: "-15px",
     marginLeft: "-15px",
-    width: "auto"
-  }
+    width: "auto",
+  },
 };
 
 const useStyles = makeStyles(styles);
 
-export default function GridContainer(props) {
+const GridContainer = (props) => {
   const classes = useStyles();
   const { children, className, ...rest } = props;
   return (
@@ -24,13 +24,14 @@ export default function GridContainer(props) {
       {children}
     </Grid>
   );
-}
+};
 
 GridContainer.defaultProps = {
-  className: ""
+  className: "",
 };
 
 GridContainer.propTypes = {
   children: PropTypes.node,
-  className: PropTypes.string
+  className: PropTypes.string,
 };
+export default GridContainer;
