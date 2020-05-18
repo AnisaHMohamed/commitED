@@ -95,5 +95,14 @@ const getUserInfoFromId = (id) => {
        FROM users
        WHERE id = $1;`, [id]);
 };
+const getAllUserOpportunites = (type, email) => {
+  return db.query(
+  `SELECT * FROM  Opportunity
+  JOIN user ON Opportunity.user_id == user.id
+  JOIN requests ON Opportunity.user_id == requests.user_id
+  WHERE type  LIKE '%${type}' -- volunteer
+  AND user.email LIKE '%${email}'--email address`)
+
+}
 module.exports = { dbParams, createRequest, showRequests, createPost, showPosts,login, getEmail, createUser, getUserLatAndLng, getOpportunityLatAndLng, updateOpportunity, deleteOpportunities, getEmailOfOpportunityOwner,getUserInfoFromId };
 
