@@ -12,21 +12,22 @@ import styles from "../../assets/jss/material-kit-react/components/cardBodyStyle
 
 const useStyles = makeStyles(styles);
 
-export default function CardBody(props) {
+const CardBody = (props) => {
   const classes = useStyles();
   const { className, children, ...rest } = props;
   const cardBodyClasses = classNames({
     [classes.cardBody]: true,
-    [className]: className !== undefined
+    [className]: className !== undefined,
   });
   return (
     <div className={cardBodyClasses} {...rest}>
       {children}
     </div>
   );
-}
+};
 
 CardBody.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.node
+  children: PropTypes.node,
 };
+export default CardBody;
