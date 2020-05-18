@@ -137,6 +137,9 @@ export default function PopUpPost(props) {
 
                           <p style={{fontSize: 21, fontWeight:900}}> {props.post.title}</p>
                           <p style={{noWrap: false, fontSize: 21}}> {props.post.description} </p>
+                          <p style={{noWrap: false, fontSize: 21}}> Category: {props.post.type} </p>
+                          <p style={{noWrap: false, fontSize: 21}}> Location: {props.post.address} </p>
+                          <p style={{noWrap: false, fontSize: 21}}> Date Posted: {props.post.date_posted.split("T")[0]} </p>
 
                         </div>
                       </div>
