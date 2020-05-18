@@ -82,5 +82,5 @@ const About = () => {
       </GridItem>
     </GridContainer>
   );
-}
+};
 export default About;
