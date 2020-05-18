@@ -1,5 +1,4 @@
--- Drop and recreate Users table (Example)
-
+-- Drop and recreate Opportunities table
 DROP TABLE IF EXISTS opportunities CASCADE;
 CREATE TABLE opportunities (
   id SERIAL PRIMARY KEY NOT NULL,
@@ -11,5 +10,4 @@ CREATE TABLE opportunities (
   address VARCHAR(255) NOT NULL,
   longitude VARCHAR(255),
   latitude VARCHAR(255)
-
 );

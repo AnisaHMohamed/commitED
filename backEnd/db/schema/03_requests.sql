@@ -1,5 +1,4 @@
--- Drop and recreate Users table (Example)
-
+-- Drop and Recreate requests table
 DROP TABLE IF EXISTS requests CASCADE;
 CREATE TABLE requests (
   id SERIAL PRIMARY KEY NOT NULL,
