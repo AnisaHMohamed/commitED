@@ -10,11 +10,11 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
 // core components
 import styles from "../../assets/jss/material-kit-react/components/headerStyle.js";
-import logo from '../../../src/logo.png'
+import logo from "../../../src/logo.png";
 
 const useStyles = makeStyles(styles);
 
-export default function Header(props) {
+const Header = (props) => {
   const classes = useStyles();
   React.useEffect(() => {
     if (props.changeColorOnScroll) {
@@ -50,24 +50,24 @@ export default function Header(props) {
     [classes.appBar]: true,
     [classes[color]]: color,
     [classes.absolute]: absolute,
-    [classes.fixed]: fixed
+    [classes.fixed]: fixed,
   });
   const brandComponent = <Button className={classes.title}>{brand}</Button>;
   return (
-    <AppBar style={{height: '7em'}} className={appBarClasses}>
+    <AppBar style={{ height: "7em" }} className={appBarClasses}>
       <Toolbar className={classes.container}>
         {leftLinks !== undefined ? brandComponent : null}
         <div className={classes.flex}>
-          <img style={{height: "8em", width: "auto"}} src={logo}/>
+          <img style={{ height: "8em", width: "auto" }} src={logo} />
         </div>
-          {rightLinks}
+        {rightLinks}
       </Toolbar>
     </AppBar>
   );
-}
+};
 
 Header.defaultProp = {
-  color: "white"
+  color: "white",
 };
 
 Header.propTypes = {
@@ -80,7 +80,7 @@ Header.propTypes = {
     "transparent",
     "white",
     "rose",
-    "dark"
+    "dark",
   ]),
   rightLinks: PropTypes.node,
   leftLinks: PropTypes.node,
@@ -104,7 +104,8 @@ Header.propTypes = {
       "transparent",
       "white",
       "rose",
-      "dark"
-    ]).isRequired
-  })
+      "dark",
+    ]).isRequired,
+  }),
 };
+export default Header;
