@@ -1,3 +1,25 @@
+--------------------------------------------------------
+--Get all Users
+--------------------------------------------------------
+SELECT * FROM  Users
+WHERE type  LIKE '%${}'
+--------------------------------------------------------
+---Get all Volunteer opportunies
+--------------------------------------------------------
+SELECT * FROM  Opportunity
+JOIN user ON user_id == user.id
+WHERE type  LIKE '%${}' -- volunteer
+AND user.email LIKE '%{}'--email address
+
+--------------------------------------------------------
+---Get all Service provider opportunies
+--------------------------------------------------------
+ SELECT * FROM  Opportunity
+JOIN user ON user_id == user.id
+WHERE type  LIKE '%${}' -- service provider
+AND user.email LIKE '%{}'--email address
+
+---------------------------------------------------------
 --Get all requests for a user
 ---------------------------------------------------------
 SELECT * FROM  Opportunity
@@ -92,7 +114,7 @@ SELECT * FROM  requests
 JOIN user ON requests.user_id == user.id
 WHERE type  LIKE '%${}' -- volunteer
 --------------------------------------------------------
----Get all volunteer requests
+---Get all service provider request
 --------------------------------------------------------
 SELECT * FROM  requests
 JOIN user ON requests.user_id == user.id
