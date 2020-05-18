@@ -12,13 +12,13 @@ const styles = {
     minHeight: "1px",
     paddingRight: "15px",
     paddingLeft: "15px",
-    flexBasis: "auto"
-  }
+    flexBasis: "auto",
+  },
 };
 
 const useStyles = makeStyles(styles);
 
-export default function GridItem(props) {
+const GridItem = (props) => {
   const classes = useStyles();
   const { children, className, ...rest } = props;
   return (
@@ -26,13 +26,14 @@ export default function GridItem(props) {
       {children}
     </Grid>
   );
-}
+};
 
 GridItem.defaultProps = {
-  className: ""
+  className: "",
 };
 
 GridItem.propTypes = {
   children: PropTypes.node,
-  className: PropTypes.string
+  className: PropTypes.string,
 };
+export default GridItem;
