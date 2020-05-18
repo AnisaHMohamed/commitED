@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // nodejs library to set properties for components
@@ -16,7 +16,7 @@ const useStyles = makeStyles(styles);
 
 const Header = (props) => {
   const classes = useStyles();
-  React.useEffect(() => {
+  useEffect(() => {
     if (props.changeColorOnScroll) {
       window.addEventListener("scroll", headerColorChange);
     }
