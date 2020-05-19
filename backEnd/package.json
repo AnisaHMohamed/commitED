@@ -5,17 +5,18 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js",
+    "start": "concurrently \"nodemon server.js\" \"cd ../frontend && npm start\"",
     "local": "./node_modules/.bin/nodemon -L --ignore public/",
     "db:reset": "node bin/resetdb.js"
   },
-  "author": "Lighthouse Labs",
+  "author": "Anisa Mohamed",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.2",
     "bcrypt": "^3.0.8",
     "body-parser": "^1.19.0",
     "chalk": "^2.4.2",
+    "concurrently": "^5.2.0",
     "cookie-session": "^1.4.0",
     "cors": "^2.8.5",
     "dotenv": "^2.0.0",

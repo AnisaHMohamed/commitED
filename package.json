@@ -1,0 +1,24 @@
+{
+  "name": "commited",
+  "version": "1.0.0",
+  "description": "commited a react express node psql service provider and volunteer platfrom app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"cd frontend,  npm start\" \"cd backend, npm run local\""
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnisaHMohamed/commitED.git"
+  },
+  "author": "Anisa Mohamed",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnisaHMohamed/commitED/issues"
+  },
+  "homepage": "https://github.com/AnisaHMohamed/commitED#readme",
+  "dependencies": {
+    "concurrently": "^5.2.0"
+  }
+}
