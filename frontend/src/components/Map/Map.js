@@ -3,10 +3,6 @@ import { GoogleApiWrapper, InfoWindow, Marker } from "google-maps-react";
 import CurrentLocation from "./CurrentLocation";
 import axios from "axios";
 
-const Test = (props) => (
-  <div style={{ backgroundColor: "black", color: "red" }}>{props.name}</div>
-);
-
 //add state for state management
 export class MapContainer extends Component {
   constructor(props) {
