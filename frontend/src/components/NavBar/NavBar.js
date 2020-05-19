@@ -6,7 +6,6 @@ const NavBar = (props) => {
   const handleLogout = () => {
     props.setUser(null);
     localStorage.removeItem("user");
-    window.location = "/";
   };
 
   const rightLinks = [

@@ -27,7 +27,7 @@ export default function LoginPage(props) {
   // }, 700);
   const classes = useStyles();
   const { ...rest } = props;
-
+  const [show, setShow] = useState(true)
   function handleSubmit(e) {
     e.preventDefault();
     // POST LOGIN
@@ -43,10 +43,11 @@ export default function LoginPage(props) {
         // todo: remove once you're all set up *** add in if you want to render serviceUSER
         localStorage.setItem('user', JSON.stringify(response.data.user));
         props.setUser(response.data.user);
-        window.location = "/index";
+
       })
       .catch(function(error) {
         console.log(error);
+
       });
   }
 
@@ -91,7 +92,8 @@ export default function LoginPage(props) {
           />
         </CardBody>
         <CardFooter className={classes.cardFooter}>
-          <Button type="submit" simple color="primary" size="lg">
+          <Button type="submit" simple color="primary" size="lg"
+          block onClick={show}>
             Submit
           </Button>
         </CardFooter>

@@ -53,14 +53,10 @@ export default function RegisterPage(props) {
         if (response.status === 200) {
           localStorage.setItem("user", JSON.stringify(response.data.user));
           props.setUser(response.data.user);
-          window.location = "/index";
-        } else {
-          window.location = "/register";
         }
       })
       .catch(function (error) {
         console.log(error);
-        window.location = "/register";
       });
   }
 
