@@ -16,7 +16,9 @@
     "react-scripts": "0.9.5",
     "react-swipeable-views": "^0.13.9"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "jest": "^26.0.1"
+  },
   "proxy": "http://localhost:8080",
   "scripts": {
     "start": "react-scripts start",
