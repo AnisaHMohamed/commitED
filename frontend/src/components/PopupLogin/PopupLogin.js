@@ -9,14 +9,14 @@ import DialogContent from "@material-ui/core/DialogContent";
 
 // @material-ui/icons
 import Close from "@material-ui/icons/Close";
-import RegisterForm from "../RegisterForm/RegisterForm"
+import RegisterForm from "../RegisterForm/RegisterForm";
 import Button from "../CustomButtons/Button";
 // core components
 import GridContainer from "../Grid/GridContainer.js";
 import GridItem from "../Grid/GridItem.js";
 // import Button from "../CustomButtons/Button";
-import LoginForm from '../LoginForm/LoginForm'
-import styles from "../../assets/jss/material-kit-react/views/componentsSections/javascriptStyles"
+import LoginForm from "../LoginForm/LoginForm";
+import styles from "../../assets/jss/material-kit-react/views/componentsSections/javascriptStyles";
 
 const useStyles = makeStyles(styles);
 
@@ -28,16 +28,16 @@ Transition.displayName = "Transition";
 
 const PopUpLogin = (props) => {
   const classes = useStyles();
-  const [mode, setMode] = useState('LOGIN')
+  const [mode, setMode] = useState("LOGIN");
 
   return (
-    <div width="25%" height='50%'>
+    <div width="25%" height="50%">
       <GridContainer>
         <GridItem xs={12} sm={12} md={6} lg={4}>
           <Dialog
             classes={{
               root: classes.center,
-              paper: classes.modal
+              paper: classes.modal,
             }}
             open={props.classicModal}
             TransitionComponent={Transition}
@@ -68,40 +68,40 @@ const PopUpLogin = (props) => {
             >
               <div>
                 <div>
-                  <Button
-                    color="info"
-                    block
-                    onClick={() => setMode('LOGIN')}
-                  >Login</Button>
+                  <Button color="info" block onClick={() => setMode("LOGIN")}>
+                    Login
+                  </Button>
                   <Button
                     color="success"
                     block
-                    onClick={() => setMode('REGISTER')}
-                  >Register</Button>
+                    onClick={() => setMode("REGISTER")}
+                  >
+                    Register
+                  </Button>
                 </div>
-                {
-                  mode === 'LOGIN' &&
+                {mode === "LOGIN" && (
                   <LoginForm
                     error={props.error}
                     setError={props.setError}
                     user={props.user}
-                    setUser={props.setUser} />
-                }
+                    setUser={props.setUser}
+                  />
+                )}
 
-                {
-                 mode === 'REGISTER' &&
-                 <RegisterForm
-                  error={props.error}
-                  setError={props.setError}
-                  user={props.user}
-                  setUser={props.setUser }/>
-                }
+                {mode === "REGISTER" && (
+                  <RegisterForm
+                    error={props.error}
+                    setError={props.setError}
+                    user={props.user}
+                    setUser={props.setUser}
+                  />
+                )}
               </div>
             </DialogContent>
           </Dialog>
         </GridItem>
       </GridContainer>
     </div>
-  )
-}
+  );
+};
 export default PopUpLogin;
