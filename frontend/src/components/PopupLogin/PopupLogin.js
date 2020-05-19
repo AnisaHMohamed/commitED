@@ -6,13 +6,8 @@ import IconButton from "@material-ui/core/IconButton";
 import Dialog from "@material-ui/core/Dialog";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
-import DialogActions from "@material-ui/core/DialogActions";
-import InputLabel from "@material-ui/core/InputLabel";
-import FormControl from "@material-ui/core/FormControl";
-import Tooltip from "@material-ui/core/Tooltip";
-import Popover from "@material-ui/core/Popover";
+
 // @material-ui/icons
-import LibraryBooks from "@material-ui/icons/LibraryBooks";
 import Close from "@material-ui/icons/Close";
 import RegisterForm from "../RegisterForm/RegisterForm"
 import Button from "../CustomButtons/Button";
@@ -31,7 +26,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 Transition.displayName = "Transition";
 
-export default function PopUpLogin(props) {
+const PopUpLogin = (props) => {
   const classes = useStyles();
   const [mode, setMode] = useState('LOGIN')
 
@@ -109,3 +104,4 @@ export default function PopUpLogin(props) {
     </div>
   )
 }
+export default PopUpLogin;
