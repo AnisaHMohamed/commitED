@@ -22,7 +22,7 @@ const LoginPage = (props) => {
   const classes = useStyles();
   const { ...rest } = props;
 
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
     // POST LOGIN
     axios
@@ -87,6 +87,6 @@ const LoginPage = (props) => {
         </form>
       </Card>
     );
-  }
+  };
 };
 export default LoginPage;

@@ -16,16 +16,7 @@ const useStyles = makeStyles(styles);
 
 const Header = (props) => {
   const classes = useStyles();
-  useEffect(() => {
-    if (props.changeColorOnScroll) {
-      window.addEventListener("scroll", headerColorChange);
-    }
-    return function cleanup() {
-      if (props.changeColorOnScroll) {
-        window.removeEventListener("scroll", headerColorChange);
-      }
-    };
-  });
+
   const headerColorChange = () => {
     const { color, changeColorOnScroll } = props;
     const windowsScrollTop = window.pageYOffset;
@@ -45,6 +36,16 @@ const Header = (props) => {
         .classList.remove(classes[changeColorOnScroll.color]);
     }
   };
+  useEffect(() => {
+    if (props.changeColorOnScroll) {
+      window.addEventListener("scroll", headerColorChange);
+    }
+    return function cleanup() {
+      if (props.changeColorOnScroll) {
+        window.removeEventListener("scroll", headerColorChange);
+      }
+    };
+  });
   const { color, rightLinks, leftLinks, brand, fixed, absolute } = props;
   const appBarClasses = classNames({
     [classes.appBar]: true,
@@ -58,7 +59,7 @@ const Header = (props) => {
       <Toolbar className={classes.container}>
         {leftLinks !== undefined ? brandComponent : null}
         <div className={classes.flex}>
-          <img style={{ height: "8em", width: "auto" }} src={logo} />
+          <img alt="header" style={{ height: "8em", width: "auto" }} src={logo} />
         </div>
         {rightLinks}
       </Toolbar>
