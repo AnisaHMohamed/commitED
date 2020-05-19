@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from "../../components/CustomButtons/Button"
 
-export default function Posts(props) {
+const Posts = (props) => {
   return (
     <Button
     color="info"
@@ -14,3 +14,4 @@ export default function Posts(props) {
     </Button>
   );
 }
+export default Posts;

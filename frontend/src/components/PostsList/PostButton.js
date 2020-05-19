@@ -14,4 +14,4 @@ const PostButton = (props) => {
     </Button>
   );
 };
-export default Post;
+export default PostButton;

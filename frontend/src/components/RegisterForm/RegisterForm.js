@@ -9,12 +9,10 @@ import People from "@material-ui/icons/People";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import Check from "@material-ui/icons/Check";
-import LockIcon from "@material-ui/icons/Lock";
 // core components
 import Button from "../CustomButtons/Button";
 import Card from "../Card/Card";
 import CardBody from "../Card/CardBody";
-import FormControl from "@material-ui/core/FormControl";
 import CardFooter from "../Card/CardFooter";
 import CustomInput from "../CustomInput/CustomInput";
 import axios from "axios";
@@ -24,13 +22,12 @@ import styles from "../../assets/jss/material-kit-react/views/loginPage";
 
 const useStyles = makeStyles(styles);
 
-export default function RegisterPage(props) {
+const RegisterPage = (props) => {
   const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
   setTimeout(function () {
     setCardAnimation("");
   }, 700);
   const classes = useStyles();
-  const { ...rest } = props;
   const [checked, setChecked] = React.useState([24, 22]);
 
   function handleSubmit(e) {
@@ -204,4 +201,5 @@ export default function RegisterPage(props) {
       </form>
     </Card>
   );
-}
+};
+export default RegisterPage;

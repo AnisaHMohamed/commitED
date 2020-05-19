@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Posts from "./Posts";
 
-export default function WaitingPostsList(props) {
+const WaitingPostsList = (props) => {
   let posts = props.posts;
-  const postlist = posts.map(post => {
+  const postlist = posts.map((post) => {
     return (
       <Posts
         key={post.id}
@@ -15,7 +15,8 @@ export default function WaitingPostsList(props) {
   });
 
   return <ul>{postlist}</ul>;
-}
+};
+export default WaitingPostsList;
 // Posts-list displays the posts
 // Issues to solve:
 // - apply/cancel button logic

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Posts from "./Posts";
 
-export default function HistoryPostsList(props) {
+const HistoryPostsList = (props) => {
   let posts = props.posts;
   const postlist = posts.map(post => {  //order by date
     return (
@@ -17,6 +17,7 @@ export default function HistoryPostsList(props) {
 
   return <ul>{postlist}</ul>;
 }
+export default HistoryPostsList;
 // Posts-list displays the posts
 // Issues to solve:
 // - apply/cancel button logic

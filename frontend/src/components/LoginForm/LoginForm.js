@@ -5,14 +5,12 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import Icon from "@material-ui/core/Icon";
 // @material-ui/icons
 import Email from "@material-ui/icons/Email";
-import People from "@material-ui/icons/People";
 // core components
 import Button from "../CustomButtons/Button";
 import Card from "../Card/Card";
 import CardBody from "../Card/CardBody";
 import CardFooter from "../Card/CardFooter";
 import CustomInput from "../CustomInput/CustomInput";
-import FormControl from "@material-ui/core/FormControl";
 import axios from "axios";
 import qs from "qs";
 
@@ -20,14 +18,13 @@ import styles from "../../assets/jss/material-kit-react/views/loginPage";
 
 const useStyles = makeStyles(styles);
 
-export default function LoginPage(props) {
+const LoginPage = (props) => {
   const [cardAnimaton, setCardAnimation] = useState("cardHidden");
-  // setTimeout(function () {
-  //   setCardAnimation("");
-  // }, 700);
+  setTimeout(function () {
+    setCardAnimation("");
+  }, 700);
   const classes = useStyles();
-  const { ...rest } = props;
-  const [show, setShow] = useState(true)
+  const [show, setShow] = useState(true);
   function handleSubmit(e) {
     e.preventDefault();
     // POST LOGIN
@@ -36,18 +33,16 @@ export default function LoginPage(props) {
         "/api/login",
         qs.stringify({
           email: e.target.email.value,
-          password: e.target.pass.value
+          password: e.target.pass.value,
         })
       )
-      .then(response => {
+      .then((response) => {
         // todo: remove once you're all set up *** add in if you want to render serviceUSER
-        localStorage.setItem('user', JSON.stringify(response.data.user));
+        localStorage.setItem("user", JSON.stringify(response.data.user));
         props.setUser(response.data.user);
-
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
-
       });
   }
 
@@ -61,7 +56,7 @@ export default function LoginPage(props) {
             labelText="Email..."
             id="email"
             formControlProps={{
-              fullWidth: true
+              fullWidth: true,
             }}
             inputProps={{
               type: "email",
@@ -69,14 +64,14 @@ export default function LoginPage(props) {
                 <InputAdornment position="end">
                   <Email className={classes.inputIconsColor} />
                 </InputAdornment>
-              )
+              ),
             }}
           />
           <CustomInput
             labelText="Password"
             id="pass"
             formControlProps={{
-              fullWidth: true
+              fullWidth: true,
             }}
             inputProps={{
               type: "password",
@@ -87,17 +82,24 @@ export default function LoginPage(props) {
                   </Icon>
                 </InputAdornment>
               ),
-              autoComplete: "off"
+              autoComplete: "off",
             }}
           />
         </CardBody>
         <CardFooter className={classes.cardFooter}>
-          <Button type="submit" simple color="primary" size="lg"
-          block onClick={show}>
+          <Button
+            type="submit"
+            simple
+            color="primary"
+            size="lg"
+            block
+            onClick={show}
+          >
             Submit
           </Button>
         </CardFooter>
       </form>
     </Card>
   );
-}
+};
+export default LoginPage;
