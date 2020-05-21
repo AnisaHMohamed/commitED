@@ -1,10 +1,9 @@
 //Database Connection for setup
 const PORT = process.env.PORT || 8080;
 const ENV = process.env.ENV || "development";
-const express = require("express");
 const { Pool } = require("pg");
 let dbParams = {};
-
+//if database url is in .env
 if (process.env.DATABASE_URL) {
   dbParams.connectionString = process.env.DATABASE_URL;
 } else {
@@ -16,9 +15,12 @@ if (process.env.DATABASE_URL) {
     database: process.env.DB_NAME,
   };
 }
-//create queries here and assign them to functions
+
+//database connection
 const db = new Pool(dbParams);
 db.connect();
+
+//Query Functions for server.js
 
 const createRequest = (opportunity_id, user_id, status) => {
   return db.query(
@@ -71,6 +73,7 @@ const login = (email) => {
     [email]
   );
 };
+
 const getEmail = (email) => {
   return db.query(
     `SELECT email
@@ -183,7 +186,6 @@ const getAllUserOpportunites = (type, email) => {
 
 module.exports = {
   dbParams,
-  express,
   createRequest,
   showRequests,
   createPost,

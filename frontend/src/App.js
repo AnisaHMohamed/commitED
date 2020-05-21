@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import "./App.scss";
 import { makeStyles } from "@material-ui/core/styles";
 import { Container, Grid } from "@material-ui/core";
+import axios from "axios";
 import NavBar from "./components/NavBar/NavBar.js";
 import PostsList from "./components/PostsList/PostsList";
 import Map from "./components/Map/Map";
 import PopupLogin from "./components/PopupLogin/PopupLogin";
 import CreatePosts from "./components/PostsForm/PostsForm";
-import axios from "axios";
 import About from "../src/components/About/About.js";
 
 const useStyles = makeStyles((theme) => ({
@@ -43,7 +43,7 @@ const App = () => {
     getPosts();
   }, []); //make a function to get called after a new post
 
-  function SideColumn() {
+  const SideColumn = () => {
     return (
       <React.Fragment>
         <Grid item xs={12}>

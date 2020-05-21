@@ -26,9 +26,12 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 Transition.displayName = "Transition";
 
+//holds logic for which form to display
 const PopUpLogin = (props) => {
   const classes = useStyles();
+  //state for form display logic default to login
   const [mode, setMode] = useState("LOGIN");
+
 
   return (
     <div width="25%" height="50%">

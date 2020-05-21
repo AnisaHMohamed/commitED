@@ -1,5 +1,8 @@
 DELETE FROM opportunities;
 DELETE FROM users;
+TRUNCATE TABLE users RESTART IDENTITY Cascade;
+
+
 INSERT INTO users (
     name,
     address,
@@ -15,7 +18,7 @@ VALUES
     'password1',
     'volunteer',
     416232332,
-    'a@a.com'
+    'anisahamohamed@gmail.com'
   ),
   (
     'Etobicoke YMCA Employment and Immigrant Services',
@@ -65,7 +68,7 @@ VALUES
     'Arabic Translator',
     'Help Newcomers with day to phrases',
     '2020-02-01',
-    2,
+    1,
     '1530 Albion Rd',
     '43.6471789',
     '-79.4043927'

@@ -55,7 +55,7 @@ const PopUpPost = (props) => {
         console.log(error);
       });
 
-    props.getPosts();
+    props.getPosts();//GetsNewPostAter delet from database
   }
   return (
     <div width="25%" height="50%">

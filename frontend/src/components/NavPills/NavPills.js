@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // nodejs library to set properties for components
@@ -19,7 +19,7 @@ import styles from "../../assets/jss/material-kit-react/views/componentsSections
 const useStyles = makeStyles(styles);
 
 const NavPills = (props) => {
-  const [active, setActive] = React.useState(props.active);
+  const [active, setActive] = useState(props.active);
   const handleChange = (event, active) => {
     setActive(active);
   };

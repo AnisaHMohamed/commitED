@@ -25,7 +25,8 @@ const LoginPage = (props) => {
   }, 700);
   const classes = useStyles();
   const [show, setShow] = useState(true);
-  function handleSubmit(e) {
+  //On Submit handler
+  const handleSubmit = (e) => {
     e.preventDefault();
     // POST LOGIN
     axios
@@ -37,7 +38,6 @@ const LoginPage = (props) => {
         })
       )
       .then((response) => {
-        // todo: remove once you're all set up *** add in if you want to render serviceUSER
         localStorage.setItem("user", JSON.stringify(response.data.user));
         props.setUser(response.data.user);
       })
@@ -45,9 +45,6 @@ const LoginPage = (props) => {
         console.log(error);
       });
   }
-
-  //Return
-
   return (
     <Card>
       <form onSubmit={handleSubmit}>

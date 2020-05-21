@@ -22,7 +22,6 @@ class CurrentLocation extends Component {
     };
   }
 
-  //ComponentDidUpdate
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.google !== this.props.google) {
       this.loadMap();

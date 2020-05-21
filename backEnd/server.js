@@ -1,9 +1,10 @@
 require("dotenv").config();
+//express server
+const express = require("express");
+const app = express();
 const PORT = process.env.PORT || 8080;
 const ENV = process.env.ENV || "development";
-const express = require("express");
 const bodyParser = require("body-parser");
-const app = express();
 const morgan = require("morgan");
 const cors = require("cors");
 const bcrypt = require("bcrypt");
@@ -13,6 +14,7 @@ const dbParams = require("./lib/db.js");
 const axios = require("axios");
 const db = require("./lib/db.js");
 const nodemailer = require("nodemailer");
+
 app.use(morgan("dev"));
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -24,13 +26,19 @@ app.use(
     keys: ["key1", "key2"]
   })
   );
+  //Server PORT
+  app.listen(PORT, () => {
+    console.log(`Example app listening on port ${PORT}`);
+  });
+
+
   //home
   app.get("/api", (request, response) => {
     response.send("HEllO");
   });
-  app.listen(PORT, () => {
-    console.log(`Example app listening on port ${PORT}`);
-  });
+
+
+
   //POST login
   app.post("/api/login", (request, response) => {
     // check if user exists in database
@@ -242,15 +250,15 @@ app.post("/api/message/:id", (req, res) => {
       const message = {
         from: userData.rows[0].email,
         to: data.rows[0].email,
-        subject: 'test',
-        text: `${userData.rows[0].name} is applying for this position. Please contact ${userData.rows[0].name} by ${userData.rows[0].phone_number} or by ${userData.rows[0].email}`
+        subject: `Interest in ${data.rows[0].title}`,
+        text: `${userData.rows[0].name} is applying for the ${data.rows[0].title} position, regarding ${data.rows[0].description}. Please contact ${userData.rows[0].name} by ${userData.rows[0].phone_number} or by email ${userData.rows[0].email}`
       };
-
       transport.sendMail(message, function(err, info) {
         if (err) {
           console.log(err);
         } else {
-          console.log(info);
+          //Email Information on Send
+          console.log("Email Information ---->", info, "ACTUAL EMAIL message -->", message);
           res.send("ok");
         }
       });

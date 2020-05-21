@@ -26,7 +26,7 @@ const About = () => {
               tabContent: (
                 <span style={{ fontFamily: Roboto, fontSize: 19 }}>
                   <p>
-                    Committed is a non-profit initiative that connects both
+                    Committed is a platform that connects both
                     volunteers and organizations in simple and intuitive way.
                   </p>
                   <p>
@@ -50,8 +50,8 @@ const About = () => {
                     to the opportunity provider.
                   </p>
                   <p>
-                    Both you and the opportunity provider will receive an email
-                    with the details of the opportunity. Just wait for the
+                    Opportunity provider will receive an email
+                    with your details and interest. Just wait for the
                     Organization to contact you back confirming the match.
                   </p>
                 </span>
@@ -63,16 +63,7 @@ const About = () => {
               tabContent: (
                 <span style={{ fontFamily: Roboto, fontSize: 19 }}>
                   <p>
-                    Collaboratively administrate empowered markets via
-                    plug-and-play networks. Dynamically procrastinate B2C users
-                    after installed base benefits.
-                  </p>
-
-                  <p>
-                    Dramatically visualize customer directed convergence without
-                    revolutionary ROI. Collaboratively administrate empowered
-                    markets via plug-and-play networks. Dynamically
-                    procrastinate B2C users after installed base benefits.
+                    Organizations can offer opportunities to volunteers where they can recieve expression of interest from potenyial volunteers!
                   </p>
                 </span>
               ),
