@@ -42,7 +42,7 @@ const App = () => {
     setUser(JSON.parse(localStorage.getItem("user")));
     getPosts();
   }, []); //make a function to get called after a new post
-
+// Displays component based on user
   const SideColumn = () => {
     return (
       <React.Fragment>
@@ -101,7 +101,10 @@ const App = () => {
           alignItems="stretch"
         >
           <Container item maxWidth="sm" padding="0">
-            {(!user || user.type === "volunteer") && (
+
+
+
+          {(!user || user.type === "volunteer") && (
               <PostsList
                 className={classes.paper}
                 user={user}
@@ -109,6 +112,8 @@ const App = () => {
                 posts={posts}
               />
             )}
+
+
 
             {user && user.type === "service_provider" && (
               <PostsList

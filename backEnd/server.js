@@ -55,7 +55,7 @@ app.use(
       }
       request.session.user_id = user.id
       console.log({ login: user })
-      // if everything is good
+      // if everything is good send response
       response.json({ user });
     })
     .catch(err => {

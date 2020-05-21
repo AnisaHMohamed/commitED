@@ -7,7 +7,6 @@ const PostsList = ({ getPosts, posts, user }) => {
   //stores data of post to be passed in as prop on click for popuppost component
   const [postToShow, setPostToShow] = useState();
 
-  const volunteerPosts = posts;
   //filtered posts belonging to the service provider logged in
   if (user) {
     const serviceProviderPosts = posts.filter((post) => {
@@ -16,8 +15,6 @@ const PostsList = ({ getPosts, posts, user }) => {
 
     if (user && user.type === "service_provider") {
       posts = serviceProviderPosts;
-    } else {
-      posts = volunteerPosts;
     }
   }
 
@@ -33,7 +30,8 @@ const PostsList = ({ getPosts, posts, user }) => {
       >
         <h1>OPPORTUNITIES</h1>
         <ul style={{ listStyleType: "none", padding: 0, margin: 0 }}>
-          {posts.map((post) => (
+
+        {posts.map((post) => (
             <li key={post.id}>
               <Post post={post} showPostModal={() => setPostToShow(post)} />
             </li>
