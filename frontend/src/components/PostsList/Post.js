@@ -2,6 +2,7 @@ import React from "react";
 import Button from "../CustomButtons/Button";
 
 const Post = ({ showPostModal, post }) => {
+  //showpostmodal sets post to show in postlist for popup post onclick
   return (
     <Button
       style={{ borderRadius: "5px" }}

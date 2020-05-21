@@ -14,7 +14,7 @@ const useStyles = makeStyles(styles);
 
 const CreatePosts = (props) => {
   const [opportunity, setOpportunity] = useState({});
-
+//log to terminal to confirm opp creation
   useEffect(() => {
     console.log({ opportunity });
   }, [opportunity]);
@@ -25,14 +25,13 @@ const CreatePosts = (props) => {
         `/api/posts/new`,
         qs.stringify({
           ...opportunity,
-          date_posted: Date.now(),
+          date_posted: Date.now().split("T")[0],
           user_id: props.user.id,
         })
       )
       .then((res) => {
         setOpportunity(res.data);
-        window.location = "/index";
-        //make opportunity component re render here!
+        window.location = "/"; // /index
       });
   };
 
@@ -41,7 +40,6 @@ const CreatePosts = (props) => {
     const target = event.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
     const id = target.id;
-
     setOpportunity({
       ...opportunity,
       [id]: value,

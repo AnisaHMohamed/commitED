@@ -12,6 +12,7 @@ import styles from "../../assets/jss/material-kit-react/views/loginPage";
 const useStyles = makeStyles(styles);
 
 const UpdateForm = (props) => {
+  //post from popupPost
   const [opportunity, setOpportunity] = useState(props.post);
 
   useEffect(() => {
@@ -43,14 +44,14 @@ const UpdateForm = (props) => {
     const target = event.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
     const id = target.id;
-
+    //updated opportunityninfo and opportunity id
     setOpportunity({
       ...opportunity,
       [id]: value,
     });
   };
 
-  const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
+  const [cardAnimaton, setCardAnimation] = useState("cardHidden");
 
   setTimeout(function () {
     setCardAnimation("");
@@ -58,7 +59,6 @@ const UpdateForm = (props) => {
 
   const classes = useStyles();
 
-  console.log(props, "<-- theese are the posts in update form");
 
   return (
     <Card>
@@ -72,7 +72,7 @@ const UpdateForm = (props) => {
               onChange: handleInputChange,
               defaultValue: props.post.type,
               autoComplete: "on",
-            }} // turn off on demo day
+            }}
           />
           <CustomInput
             labelText="Position Name"

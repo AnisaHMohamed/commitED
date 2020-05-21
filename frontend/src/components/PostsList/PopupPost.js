@@ -32,9 +32,11 @@ Transition.displayName = "Transition";
 
 const PopUpPost = (props) => {
   const classes = useStyles();
+  //only true if usertype is server provider
   const [updateForm, setUpdateForm] = useState(false);
   const [user, setUser] = useState("");
 
+  //send email using nodemailer
   function applyPost(event) {
     event.preventDefault();
     axios.post(`/api/message/${props.post.user_id}`, { from: props.user });
@@ -43,19 +45,18 @@ const PopUpPost = (props) => {
   // Delete
   function deletePost(e) {
     e.preventDefault();
-
     axios
       .delete(`/api/posts/${props.post.id}/delete`, {
         data: { userId: props.user.id },
       })
       .then((_response) => {
-        props.onClose();
+        props.onClose(); //setPostToShow(null)
       })
       .catch(function (error) {
         console.log(error);
       });
 
-    props.getPosts();//GetsNewPostAter delet from database
+    props.getPosts();//Gets New Post After delete from database
   }
   return (
     <div width="25%" height="50%">

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -23,14 +23,14 @@ import styles from "../../assets/jss/material-kit-react/views/loginPage";
 const useStyles = makeStyles(styles);
 
 const RegisterPage = (props) => {
-  const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
+  const [cardAnimaton, setCardAnimation] = useState("cardHidden");
   setTimeout(function () {
     setCardAnimation("");
   }, 700);
   const classes = useStyles();
-  const [checked, setChecked] = React.useState([24, 22]);
+  const [checked, setChecked] = useState([24, 22]);
 
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
     //Register
     axios
@@ -56,7 +56,7 @@ const RegisterPage = (props) => {
         console.log(error);
       });
   }
-
+//checkmark for service provider or volunteer
   const handleToggle = (value) => {
     const currentIndex = checked.indexOf(value);
     const newChecked = [...checked];
@@ -69,7 +69,6 @@ const RegisterPage = (props) => {
     setChecked(newChecked);
   };
 
-  //RETURN
   return (
     <Card>
       <form onSubmit={handleSubmit}>

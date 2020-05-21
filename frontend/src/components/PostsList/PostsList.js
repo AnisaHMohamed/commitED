@@ -4,14 +4,16 @@ import Post from "./Post";
 import Roboto from "../../assets/jss/material-kit-react/components/typographyStyle";
 
 const PostsList = ({ getPosts, posts, user }) => {
+  //stores data of post to be passed in as prop on click for popuppost component
   const [postToShow, setPostToShow] = useState();
 
+  const volunteerPosts = posts;
+  //filtered posts belonging to the service provider logged in
   if (user) {
     const serviceProviderPosts = posts.filter((post) => {
       return user.type === "service_provider" && post.user_id === user.id;
     });
 
-    const volunteerPosts = posts;
     if (user && user.type === "service_provider") {
       posts = serviceProviderPosts;
     } else {
